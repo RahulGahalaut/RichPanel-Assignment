@@ -6,6 +6,10 @@ const subscriptionSchema = new mongoose.Schema(
             type: String,
             required: true
         },
+        subscriptionState: {
+            type: String,
+            required: true
+        },
         subscriber: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "User"

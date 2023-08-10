@@ -23,12 +23,7 @@ const subscriptionPlanSchema = mongoose.Schema(
             type: String,
             required: true
         },
-        allowedDevices: [
-            {
-                type: String,
-                required: true
-            }
-        ],
+        allowedDevices: [{ type: String }],
         allowedActiveScreens: {
             type: Number,
             required: true
@@ -37,7 +32,7 @@ const subscriptionPlanSchema = mongoose.Schema(
     { timestamps: true }
 );
 
-const SubscriptionPlan = mongoose.Model('SubscriptionPlan', subscriptionPlanSchema);
+const SubscriptionPlan = mongoose.model('SubscriptionPlan', subscriptionPlanSchema);
 
 export default SubscriptionPlan;
 

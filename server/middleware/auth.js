@@ -1,9 +1,14 @@
-import Jwt from "jsonwebtoken"
+import Jwt from "jsonwebtoken";
+
+//define authentication function
 const auth = function (req, res, next) {
     try {
         //extract token from Authorization header
         const token = req.headers.authorization.replace("Bearer ", "");
+
+        //decode token
         const decodedData = Jwt.verify(token, process.env.JWT_SECRET);
+
         //atach decoded data with request object
         req.user = decodedData;
         next();
@@ -15,3 +20,5 @@ const auth = function (req, res, next) {
     }
 
 }
+//export authentication function
+export default auth;
